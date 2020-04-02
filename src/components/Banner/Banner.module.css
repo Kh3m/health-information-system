@@ -1,0 +1,106 @@
+
+.banner-wrapper {
+    margin-top: 60px;
+    width: 100%;
+    height: 550px;
+    z-index: 4;
+  }
+  .banner {
+    width: 40%;
+    height: 470px;
+    background-color: #e1e1e3;
+    float: left;
+    padding-left: 10%;
+  }
+  .banner:nth-of-type(2) {
+    background-image: url(../../static/images/banner4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+  }
+  .banner-bottom{
+    background-color: #fafafa;
+    font-family: 'Berlin Sans FB';
+    font-size: 30px;
+    color: #0070c0;
+    width: 100%;
+    max-width: -webkit-fill-available;
+    padding: 0px 10% 0px 10%;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    /* margin-bottom: 30px; */
+    box-shadow: 0px 4px 10px #64a873;
+    justify-content: space-around;
+    z-index: 5;
+  }
+
+  
+.greet{
+    color: #0d718a;
+    font-family: 'Century725 Cn BT';
+    font-size: 35px;
+    margin-bottom: 0px;
+    margin-top: 80px;
+  }
+  .title{
+    color: #147b2b;
+    font-size: 60px;
+    font-family: 'Britannic';
+    text-transform: capitalize;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .description{
+    font-family: 'Tw Cen MT';
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-top: 0px;
+  }
+  .btn-dark{
+    width: 200px;
+    height: 38px;
+    border-style: solid;
+    background-color: #11c266;
+    border-radius: 5px;
+    border-color: #11c266;
+  }
+  .btn-dark a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  .btn-dark:hover{
+    background-color: #269b5e;
+    font-weight: 900;
+    box-shadow: 0px 4px 10px #64a873;
+    border-color: #269b5e;
+  }
+  .btn-light{
+    width: 200px;
+    height: 38px;
+    border-style: solid;
+    background-color: white;
+    border-radius: 5px;
+    border-color: #11c266;
+  }
+  .btn-light a{
+    text-decoration: none;
+    color: #11c266;
+    font-weight: bold;
+  }
+  .btn-light:hover a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  .btn-light:hover{
+    background-color: #269b5e;
+    font-weight: 900;
+    box-shadow: 0px 4px 10px #64a873;
+    border-color: #269b5e;
+  }
+  .container{
+    display: block;
+    margin-top: 100px;
+  }
