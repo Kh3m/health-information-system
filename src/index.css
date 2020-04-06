@@ -19,3 +19,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 55%;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  outline-offset: none;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  font-size: 1.6rem;
+}

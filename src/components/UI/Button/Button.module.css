@@ -1,0 +1,31 @@
+/* Button link */
+.button-link {
+    outline: 0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    border-radius: 30px;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+  
+  .button-link:hover {
+    background-color: transparent;
+    border: 2px solid #337ab7;
+    color: #000;
+  }
+
+  .Login {
+    float: right;
+    padding: 10px 30px;
+    background-color: #004900;
+  }
+
+  .InfoBtn {
+    padding: 15px 35px;
+    background-color: #FFF;
+    color: #000;
+  }
+
+  /* End Of Button link */

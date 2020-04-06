@@ -1,0 +1,10 @@
+.HISLogo {
+    width: 100px;
+    float: left;
+    background-color: #004900;
+    padding: 7px 10px;
+  }
+  
+  .HISLogo img {
+    width: 70px;
+  }

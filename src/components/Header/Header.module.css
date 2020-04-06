@@ -1,45 +1,33 @@
+/* Header Component Styling */
+.Header {
+  background-color: #fff;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0px 2px 10px #64a873;
+  padding: 0px 2%;
+  z-index: 5;
+}
 
-header {
-    background-color: #fafafa;
-    width: 100%;
-    max-width: -webkit-fill-available;
-    height: 60px;
-    position: fixed;
-    top: 0px;
-    box-shadow: 0px 4px 10px #64a873;
-    padding: 0px 10%;
-    z-index: 5;
-  }
-  .logo {
-    font-size: 35px;
-    height: 50px;
-    float: left;
-    letter-spacing: 5px;
-    width: 6%;
-    background-image: url(../../static/images/logo1.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .logo span:nth-child(odd) {
-    color: #147b2b;
-  }
-  .logo span:nth-child(even) {
-    color: #cc7e00;
-  }
-  .nav {
-    margin: 0px;
-    float: left;
-  }
-  .nav li {
-    list-style: none;
-    display: inline-block;
-  }
-  .nav li a {
-    text-decoration: none;
-    color: #147b2b;
-    padding: 15px;
-    line-height: 60px;
-  }
-  .nav li a:hover{
-    font-weight: bolder;
-  }
+.Header .nav {
+  margin: 0px;
+  float: left;
+}
+.Header .nav li {
+  list-style: none;
+  display: inline-block;
+}
+
+.Header .nav li a {
+  text-decoration: none;
+  color: #575757;
+  padding: 15px;
+  line-height: 60px;
+}
+
+.Header .nav li a:hover {
+  font-weight: bolder;
+}
+/* End of Header Component styling */
