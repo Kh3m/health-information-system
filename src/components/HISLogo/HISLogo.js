@@ -8,7 +8,7 @@ import Logo from "../../assets/images/logow.png";
 
 const hisLogo = () => {
   return (
-    <div class={classes.HISLogo}>
+    <div className={classes.HISLogo}>
       <a href="/index.html">
         <img src={Logo} alt="logo" />
       </a>

@@ -1,0 +1,18 @@
+.Navigation {
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .Navigation a {
+    text-decoration: none;
+    color: #575757;
+    padding: 15px;
+    line-height: 60px;
+  }
+  
+  .Navigation a:hover,
+  .Navigation a:active,
+  a.active {
+    font-weight: bolder;
+  }

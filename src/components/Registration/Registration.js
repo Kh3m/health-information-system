@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import Input from "../UI/Input";
+import React from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import Input from "../UI/Input/Input";
 import classes from "./Registration.module.css";
 import Logo from "../../assets/images/logow.png";
 
-const PatientReg = props => {
+const registration = props => {
   return (
     <div className={classes.container} style={{ marginTop: "50px" }}>
       <h3 className={classes["page-label"]}>{props.role}</h3>
 
       <div className={classes["flex-wrapper"]}>
         <div className={classes["reg-wrapper"]}>
-          <a href="#">
+          <Link to="/">
             <img src={Logo} alt="logo" width="80px" />
-          </a>
+          </Link>
 
           <h2>{props.role}</h2>
-          <form action="#" method="POST">
+          <form>
             <Input
               type="text"
               placeholder="First name"
@@ -91,9 +94,7 @@ const PatientReg = props => {
             />
 
             <div className={classes["form-bottom"]}>
-              <a className={classes.forget} href="#">
-                Already have an account
-              </a>
+              Already have an account? <Link className={classes.forget} to="/account/login"> Login </Link>
               <input type="submit" value={props.role} name="patient_reg" />
             </div>
           </form>
@@ -107,4 +108,8 @@ const PatientReg = props => {
   );
 };
 
-export default PatientReg;
+registration.propTypes = {
+  role: PropTypes.string.isRequired
+}
+
+export default registration;

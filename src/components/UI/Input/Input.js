@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-const Input = props => {
+import React from "react";
+
+const input = props => {
   return (
     <React.Fragment>
       <fieldset className={props.className}>
@@ -10,4 +11,4 @@ const Input = props => {
   );
 };
 
-export default Input;
+export default input;

@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Login.module.css";
 import Logo from "../../assets/images/logow.png";
-import Input from "../UI/Input";
+import Input from "../UI/Input/Input";
 
-const Login = () => {
+import { Link } from "react-router-dom";
+
+const login = () => {
   return (
     <div className={classes.container} style={{ marginTop: "50px" }}>
+      
+      
       <h3 className={classes["page-label"]}>Patient Sign in</h3>
 
       <div className={classes["flex-wrapper"]}>
         <div className={classes["login-wrapper"]}>
-          <a href="#">
+          <Link to="/">
             <img src={Logo} alt="logo" width="80px" />
-          </a>
+          </Link>
 
           <h2>Sign in</h2>
           <h3>to access your HIS account</h3>
-          <form action="#" method="POST">
+          <form>
             <Input
               type="email"
               placeholder="Email address"
@@ -32,19 +36,24 @@ const Login = () => {
               title="Password"
               className={classes["input-label"]}
             />
-            <a className={classes.forget} href="#">
+            <Link className={classes.forget} to="/account/login/forget">
               Forget password
-            </a>
+            </Link>
             <input type="submit" value="Login" name="patient_login" />
           </form>
-
           <span className={classes["copy-right"]}>
+            <p>
+              Don't have an account? 
+              <Link to="/account/register"> Register </Link>
+            </p>
+
             health information system, Nigeria - Copyright &copy; 2020
           </span>
         </div>
       </div>
+
     </div>
   );
 };
 
-export default Login;
+export default login;
