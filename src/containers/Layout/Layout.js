@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import { Route } from "react-router-dom";
-
-// Styles
 import classes from "./Layout.module.css";
 
-// Custom component imports
+
 
 import HIS from "../../containers/HIS/HIS";
 import Account from "../Account/Account";
