@@ -66,8 +66,6 @@ h3 {
   background-color: #1a73e8;
 }
 .reg-wrapper .forget {
-  float: left;
-  clear: both;
   line-height: 50px;
   color: #1a73e8;
   text-decoration: none;
@@ -108,4 +106,5 @@ legend {
 }
 .form-bottom {
   clear: both;
+  text-align: left;
 }
