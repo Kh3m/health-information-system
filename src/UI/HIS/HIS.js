@@ -31,30 +31,13 @@ const HIS = props => {
         "Folders are nodes in the Cloud Platform Resource Hierarchy. A folder can contain projects, other folders, or a combination of both. Organizations can use folders to group projects under the organization node in a hierarchy."
     }
   ]);
-  // header shadow state
-  const [headerShadowState, setHeaderShadowState] = useState(false);
-  
-  const showHeaderShadow = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop >= 100 ||
-        document.documentElement.scrollTop >= 100
-      ) {
-        setHeaderShadowState(true);
-      } else {
-        setHeaderShadowState(false);
-      }
-    });
-  }
-
   return (
     <React.Fragment>
-      <Navbar headerShadow={headerShadowState} />
-      <Banner showBannerMessage={true} />
+      {/* <Banner showBannerMessage={true} />
       <HISIntro heading="National Health Information System" />
       <Infos infos={infoState} />
       <HISIntro heading="Why did you need NHIS account?" btn={true} />
-      <Footer />
+      <Footer /> */}
     </React.Fragment>
   );
 };

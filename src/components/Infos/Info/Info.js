@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Info.module.css";
 
 // Custom component
-// import Button from "../../Button/Button";
+import { Button } from "../../Button/Button";
 
 const info = ( props ) => {
     const briefs = [classes.BriefDefault];
@@ -22,7 +22,7 @@ const info = ( props ) => {
                 <span className={briefs.join(" ")}>{briefText}</span>
                 <h3>{props.heading}</h3>
                 <p>{props.detail}</p>
-                {/* <Button>{props.btnCaption}</Button> */}
+                <Button type="InfoBtn" label="Preview"/>
             </div>
         </div>
     )

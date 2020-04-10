@@ -1,27 +1,37 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-// Style
 import classes from "./Header.module.css";
-
-// Custom components
-import HISLogo from "../../components/HISLogo/HISLogo";
 import { Button } from "../../components/Button/Button";
-import Navigations from "../../components/Navigations/Navigations";
+import headerLogo from "../../assets/images/logow.png";
 
 function Navbar(props) {
   const headerClasses = [classes.Header];
-  if (props.headerShadow) {
+  if (props.showShadow) {
     headerClasses.push(classes.HeaderShadow);
   }
 
   return (
-    <header className={headerClasses.join(" ")} onScroll={props.onScroll}>
-      <HISLogo />
-      <Navigations />
-      <NavLink to='/account/login' exact activeClassName={classes.active}>
-        <Button type='Login' onClick={props.loginClick} text='Login' />
-      </NavLink>
+    <header className={headerClasses.join(" ")}>
+      <div className={classes.HISLogo}>
+        <img src={headerLogo}></img>
+      </div>
+      <div className={classes.Navigations}>
+        <ul className={classes.Navigation}>
+          <li>
+            <Link to="/" >Home</Link>
+          </li>
+          <li>
+            <Link to='./About'>About US</Link>
+          </li>
+          <li>
+            <Link to='./contact'>Contact US</Link>
+          </li>
+        </ul>
+      </div>
+      <div className={classes.button}>
+        <Button type='Login' onClick={props.loginClick} label='Login' />
+      </div>
     </header>
   );
 }

@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Route} from "react-router-dom"
 
-import { Route } from "react-router-dom";
 import classes from "./Layout.module.css";
-import HIS from "../containers/HIS/HIS";
-import Account from "../containers/Account/Account";
 
-const Layout = props => {
+
+import Navbar from "../UI/Header/Header";
+import Dashboard from "../UI/Dashboard/Dashboard";
+
+
+function Layout(props){
+  const [ show, setShow ] = useState(false);
+  const handleHeaderShadow = () => {
+    if (document.body.scrollTop >= 10){
+      setShow(true)
+    }
+      setShow(false)
+   }
   return (
     <React.Fragment>
-      <main className={classes.Main}>
-        <Route path="/" exact component={HIS} />
-        <Route path="/account" component={Account} />
+      <Navbar showShadow={show} />
+      <main className={classes.main} onScroll={handleHeaderShadow}>
+        <BrowserRouter>
+          <Route path="/" component={Dashboard}/>
+        </BrowserRouter>
       </main>
     </React.Fragment>
   );
