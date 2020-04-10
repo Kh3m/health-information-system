@@ -1,4 +1,4 @@
-# Health-information-system
+# Health-Information-System
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -7,8 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm install`
-Which installs all the required depencies
-Note - You need to have nodejs installed to do this.
+Which installs all the required dependencies.
+`Note` - You need to have nodejs installed to do this.
 
 ### `npm start`
 
