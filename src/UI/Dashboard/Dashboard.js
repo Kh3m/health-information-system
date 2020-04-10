@@ -35,7 +35,9 @@ function Dashboard() {
           <h3>a centralized system for health information records</h3>
         </div>
       </div>
-      <div></div>
+      <div>
+        
+      </div>
     </div>
   );
 }
