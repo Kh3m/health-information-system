@@ -4,7 +4,7 @@ import React from "react";
 import classes from "./Banner.module.css";
 
 // Custom components
-import Button from "../UI/Button/Button";
+// import Button} from "../Button/Button";
 
 const banner = ( props ) => {
     let bannerMessage = null;
@@ -14,14 +14,13 @@ const banner = ( props ) => {
                 <h2>Welcome to</h2>
                 <h2>National Health information System</h2>
                 <h3>a centralized system for health information records</h3>
-                <Button>More...</Button>
+                {/* <Button>More...</Button> */}
             </div>            
         );
     }
     return (
         <div className={classes["banner-wrapper"]}>
             {bannerMessage}
-            <div></div>
         </div>
     )
 }

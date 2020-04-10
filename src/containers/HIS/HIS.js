@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Custom component imports
-import Header from "../../components/Header/Header";
+import Navbar from "../../UI/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import HISIntro from "../../components/HISIntro/HISIntro";
 import Infos from "../../components/Infos/Infos";
@@ -33,8 +33,8 @@ const HIS = props => {
   ]);
   // header shadow state
   const [headerShadowState, setHeaderShadowState] = useState(false);
-  useEffect(() => {
-    // check the scolltop value
+  
+  const showHeaderShadow = () => {
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop >= 100 ||
@@ -45,11 +45,11 @@ const HIS = props => {
         setHeaderShadowState(false);
       }
     });
-  });
+  }
 
   return (
     <React.Fragment>
-      <Header headerShadow={headerShadowState} />
+      <Navbar headerShadow={headerShadowState} />
       <Banner showBannerMessage={true} />
       <HISIntro heading="National Health Information System" />
       <Infos infos={infoState} />

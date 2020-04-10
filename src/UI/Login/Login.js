@@ -1,11 +1,11 @@
 import React from "react";
 import classes from "./Login.module.css";
 import Logo from "../../assets/images/logow.png";
-import Input from "../UI/Input/Input";
+import Input from "../../components/Input/Input";
 
 import { Link } from "react-router-dom";
 
-const login = () => {
+const Login = () => {
   return (
     <div className={classes.container} style={{ marginTop: "50px" }}>
       
@@ -56,4 +56,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

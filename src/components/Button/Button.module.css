@@ -1,5 +1,5 @@
 /* Button link */
-.button-link {
+.button_link {
   outline: 0;
   color: white;
   border: none;
@@ -10,7 +10,7 @@
   transition: 0.3s;
 }
 
-.button-link:hover {
+.button_link:hover {
   background-color: transparent;
   border: 2px solid #337ab7;
   color: #000;

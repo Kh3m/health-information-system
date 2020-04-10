@@ -4,7 +4,7 @@ import React from "react";
 import classes from "./HISIntro.module.css";
 
 // Custom components
-import Button from "../UI/Button/Button";
+// import Button from "../Button/Button";
 
 const hisIntro = ( props ) => {
     return (
@@ -16,7 +16,7 @@ const hisIntro = ( props ) => {
           Organizations can use folders to group projects under the organization
           node in a hierarchy.
         </p>
-        {props.btn? <Button>How to get started </Button>: null}
+        {/* {props.btn? <Button>How to get started </Button>: null} */}
       </div>
     );
 }

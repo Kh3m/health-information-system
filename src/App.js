@@ -4,7 +4,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 // Custom components
-import Layout from "./containers/Layout/Layout";
+import Layout from "./Layout/Layout";
 
 function App() {
   return (

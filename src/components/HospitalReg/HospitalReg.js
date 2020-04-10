@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../UI/Input";
+import Input from "../Input";
 import classes from "./HospitalReg.module.css";
 import Logo from "../../assets/images/logow.png";
 

@@ -2,11 +2,8 @@ import React from "react";
 
 import { Route } from "react-router-dom";
 import classes from "./Layout.module.css";
-
-
-
-import HIS from "../../containers/HIS/HIS";
-import Account from "../Account/Account";
+import HIS from "../containers/HIS/HIS";
+import Account from "../containers/Account/Account";
 
 const Layout = props => {
   return (
