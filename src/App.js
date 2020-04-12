@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-
+import { AppThemeProvider } from "./theme/index"
 
 import Layout from "./Layout/Layout";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <AppThemeProvider>
+        <Layout />
+    </AppThemeProvider>
+  
   );
 }
 
