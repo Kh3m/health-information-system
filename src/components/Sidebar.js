@@ -12,19 +12,9 @@ import {
   // ListItemText,
   Typography,
 } from "@material-ui/core";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Dashboard,
-  AccountCircle,
-  AccessibleForward,
-  Info,
-  ContactSupport,
-  Edit,
-  AttachMoney,
-  Person,
-} from "@material-ui/icons";
+import { ChevronLeft, ChevronRight, AccountCircle } from "@material-ui/icons";
 
+import { Buttons } from "./Custom/Sidebuttons";
 import headerLogo from "../assets/images/logow.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +57,13 @@ function SideBar(props) {
         classes={classes}>
         <div style={{ display: "flex" }}>
           <div style={{ width: "200px" }}>
-            <img src={headerLogo} className={style.HISLogo} alt='header_icon' />
+            <Link to="./"  onClick={handleDrawerClose}>
+              <img
+                src={headerLogo}
+                className={style.HISLogo}
+                alt='header_icon'
+              />
+            </Link>
           </div>
           <div className={style.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
@@ -98,38 +94,11 @@ function SideBar(props) {
         </div>
         {/* drawer items */}
         <div className={style.drawerItems}>
-          <List>
-            {buttons.map(({ icon, label, link }) => (
-              <Link to={link} key={label}>
-                <ListItem button>
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <Typography variant='h5'>{label}</Typography>
-                </ListItem>
-              </Link>
-            ))}
-          </List>
+          <Buttons />
         </div>
       </Drawer>
     </div>
   );
 }
-
-const buttons = [
-  {
-    icon: <Dashboard style={{ fontSize: "30px" }} />,
-    label: "DashBoard",
-    link: "./dashboard",
-  },
-  {
-    icon: <AccessibleForward style={{ fontSize: "30px" }} />,
-    label: "Patients",
-    link: "/",
-  },
-  { icon: <Person style={{ fontSize: "30px" }} />, label: "User Mgmt" },
-  { icon: <AttachMoney style={{ fontSize: "30px" }} />, label: "Finance Mgmt" },
-  { icon: <Edit style={{ fontSize: "30px" }} />, label: "Edit Profile" },
-  { icon: <Info style={{ fontSize: "30px" }} />, label: "About us" },
-  { icon: <ContactSupport style={{ fontSize: "30px" }} />, label: "Contact" },
-];
 
 export default SideBar;

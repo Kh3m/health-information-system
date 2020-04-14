@@ -96,7 +96,7 @@ function Navbar(props) {
             </IconButton>
             {/* user Account */}
             <div className={style.userAccount}>
-              {openLogin ? (
+              {true ? (
                 <React.Fragment>
                   <IconButton
                     aria-label='account of current user'

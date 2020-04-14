@@ -1,18 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
   makeStyles,
   Button,
   Typography,
   Grid,
-  Grow,
+  // Grow,
   Paper,
   Zoom,
+  Fade,
 } from "@material-ui/core";
 import { DashboardCard } from "../components/Card";
 // import Footer from "../components/Footer";
 
 import media from "../assets/images/logon.png";
 import banner from "../assets/images/banner3.jpg";
+import headerLogo from "../assets/images/logow.png";
+
 
 const useStyles = makeStyles((theme) => ({
   bannerWrapper: {
@@ -61,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
   dashboardCardMedia: {
     height: 132,
   },
+  HISLogo: {
+    width: theme.spacing(30),
+    position: "relative",
+    left: "55px",
+  },
 }));
 
 const text = `
@@ -72,21 +80,24 @@ const text = `
 
 function Home(props) {
   const { LoginClick } = props;
-  const grow = useRef(null);
   const style = useStyles();
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Grow
+        <Fade
           in={true}
-          ref={grow}
           style={{ transformOrigin: "0 0 0 0" }}
           {...(true ? { timeout: 3000 } : {})}>
           <div className={style.bannerWrapper}>
             <Paper elevation={10} className={style.bannerMessage}>
+            <img
+                src={headerLogo}
+                className={style.HISLogo}
+                alt='header_icon'
+              />
               <Typography variant='h2'>
                 Welcome to National Health information System a centralized
-                system for health information records
+                system for health information records.
               </Typography>
               <div className={style.dashboardbutton}>
                 <Button variant='contained' size='large'>
@@ -98,7 +109,7 @@ function Home(props) {
               </div>
             </Paper>
           </div>
-        </Grow>
+        </Fade>
       </Grid>
       <Grid item xs={12}>
         <div className={style.cards}>

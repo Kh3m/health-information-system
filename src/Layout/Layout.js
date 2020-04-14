@@ -7,8 +7,9 @@ import { makeStyles } from "@material-ui/core";
 import Navbar from "../components/Header";
 
 import Dashboard from "../UI/Dashboard/Dashboard";
+import Hospitals from "../UI/Hospitals/Hopistal";
 import Home from "../UI/Home";
-import Form from "../containers/login/Login";
+import Form from "../auth/Login";
 import Footer from "../components/Footer";
 
 const drawerWidth = 240;
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     position: "static",
-    height: theme.spacing(20),
+    height: theme.spacing(10),
     top: "auto",
     bottom: 0,
     display: "flex",
@@ -83,6 +84,9 @@ function Layout(props) {
             </Route>
             <Route path='/dashboard'>
               <Dashboard />
+            </Route>
+            <Route path="/hospitals">
+               <Hospitals />
             </Route>
           </Switch>
           <Form openModal={openModal} handleModalClose={handleModalClose} />

@@ -10,7 +10,8 @@ export const AppThemeProvider = memo(({children}) => {
           primary: green,
         },
         typography: {
-            fontFamily: "'Comic Neue', cursive",
+            // fontFamily: "'Comic Neue', cursive",
+            fontFamily: "'Roboto', sans-serif",
             h1: {
                 fontSize: "4rem"
             },
@@ -24,7 +25,7 @@ export const AppThemeProvider = memo(({children}) => {
                 fontSize: "1.50rem"
             },
             h5: {
-                fontSize: "2rem"
+                fontSize: "1.2rem"
             },
             h6: {
                 fontSize: "3rem"
@@ -36,11 +37,15 @@ export const AppThemeProvider = memo(({children}) => {
                 fontSize: "1.50rem"
             },
             subtitle1: {
-                fontSize: "2rem"
+                fontSize: "1rem"
             },
             subtitle2: {
                 fontSize: "1rem"
+            },
+            caption: {
+                fontSize: "1rem"
             }
+            
         }
     });
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>
