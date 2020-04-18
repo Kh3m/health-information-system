@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
 import {
   makeStyles,
@@ -60,6 +61,14 @@ const Details = ({ icon, label, number, color }) => {
 };
 
 function Dashboard(props) {
+
+  // redirect if there is no user
+  useEffect(() => {
+    if(props.userData === null) {
+      props.history.replace("/");
+    }
+  }, []);
+
   const style = useStyles();
   return (
     <Box className={style.root}>
@@ -149,4 +158,4 @@ const details = [
   },
 ];
 
-export default Dashboard;
+export default withRouter(Dashboard);

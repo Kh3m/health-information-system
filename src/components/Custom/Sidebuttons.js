@@ -20,9 +20,11 @@ import {
   ExpandMore,
   ArrowBackIos,
   RadioButtonUncheckedOutlined,
+  Cancel,
+  StayPrimaryLandscapeOutlined
 } from "@material-ui/icons";
 
-export const Buttons = () => {
+export const Buttons = ( props ) => {
   const [expand, setExpand] = useState({
     user: false,
     hospital: false,
@@ -45,8 +47,32 @@ export const Buttons = () => {
         return type;
     }
   };
-  return (
+
+  // setting authorization UI
+  let showForAll = (
+  <React.Fragment>
+    <ListItem button>
+      <ListItemIcon>
+        <Info style={{ fontSize: "30px" }} />
+      </ListItemIcon>
+      <ListItemText primary='About us' />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <ContactSupport style={{ fontSize: "30px" }} />
+      </ListItemIcon>
+      <ListItemText primary='Contacts' />
+    </ListItem>    
+  </React.Fragment>
+  )
+  let sideButtons = (
     <List>
+      {showForAll}
+    </List>
+  )
+  if(props.userData) {
+    sideButtons = (
+      <List>
       <Link to='./dashboard'>
         <ListItem button>
           <ListItemIcon>
@@ -123,18 +149,16 @@ export const Buttons = () => {
         </ListItemIcon>
         <ListItemText primary='Edit Profile' />
       </ListItem>
-      <ListItem button>
+      {showForAll}
+      <ListItem button onClick={props.logOut}>
         <ListItemIcon>
-          <Info style={{ fontSize: "30px" }} />
+          <Cancel style={{ fontSize: "30px" }} />
         </ListItemIcon>
-        <ListItemText primary='About us' />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <ContactSupport style={{ fontSize: "30px" }} />
-        </ListItemIcon>
-        <ListItemText primary='Contacts' />
-      </ListItem>
+        <ListItemText primary='Logout' />
+      </ListItem>      
     </List>
-  );
+    )
+  }
+
+  return sideButtons;
 };

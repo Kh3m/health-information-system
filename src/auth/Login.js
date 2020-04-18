@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+
+import * as actions from "../store/actions";
 import {
   TextField,
   makeStyles,
@@ -80,6 +83,34 @@ function Form(props) {
   //   };
   // }, []);
 
+  // switch mode state
+  const [isSignUp, setIsSignUp] = useState(false);
+
+  // login form state
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const switchViewHandler = () => {
+    setIsSignUp(!isSignUp);
+  }
+  const switchView = () => {
+    let defaultView =  <div>Don't have an account ? <Button onClick={switchViewHandler} color='primary'>Switch To Sign Up</Button></div>
+    if(isSignUp) {
+      defaultView =  <div>Already have an account ? <Button onClick={switchViewHandler} color='primary'>Switch To Sign In</Button></div>
+    }
+
+    return defaultView;
+  }
+
+  // two way binding
+  const loginFormChangeHandler = (event, prop) => {
+    const loginFormDataUpdate = {...loginFormData};
+    loginFormDataUpdate[prop] = event.target.value;
+    setLoginFormData(loginFormDataUpdate);
+  };
+
   const style = useStyles();
   return (
     <Backdrop open={openModal} className={style.backdrop}>
@@ -101,10 +132,13 @@ function Form(props) {
           </Box>
           <Box display='flex' justifyContent='center' alignItems='center'>
             <div className={style.formWrapper}>
-              <Typography variant='h2'>Sign in</Typography>
+              <Typography variant='h2'>{ isSignUp ? "Sign Up" : "Sign In"}</Typography>
+              <Typography variant='h5' color="error">{props.error ? props.error.message:""}</Typography>
               <form className={style.root}>
                 <FormControl>
-                  <TextField id='standard-basic' label='Email' type='email' />
+                  <TextField onChange={(event) => loginFormChangeHandler(event, "email")} 
+                    value={loginFormData.email}
+                    id='standard-basic' label='Email' type='email' />
                 </FormControl>
                 <FormControl>
                   <InputLabel htmlFor='standard-adornment-password'>
@@ -113,8 +147,8 @@ function Form(props) {
                   <Input
                     id='standard-adornment-password'
                     type={true ? "text" : "password"}
-                    value={""}
-                    // onChange={handleChange("password")}
+                    value={loginFormData.password}
+                    onChange={(event) => loginFormChangeHandler(event, "password")}
                     endAdornment={
                       <InputAdornment position='end'>
                         <IconButton
@@ -128,16 +162,20 @@ function Form(props) {
                     }
                   />
                 </FormControl>
-                <Button size='large' variant='contained' color='secondary'>
-                  Sign in
+                <Button 
+                  onClick={() => props.onLoginSubmitHandler(isSignUp, {email:loginFormData.email, password:loginFormData.password})}
+                  size='large' variant='contained' color='secondary' 
+                  disabled={props.loading ? true : false}>
+                  { props.loading ? "Loading..." : isSignUp ? "Sign Up" : "Sign In"}
                 </Button>
+                
               </form>
               <Typography variant='subtitle1'>Forget Password?</Typography>
               <Typography variant='subtitle1'>
-                Don't have an account?
+                { switchView() }
               </Typography>
               <Typography variant='body1'>
-                Health Information System, Nigeria - Copyright &copy; 2020
+                Health Information System, Nigeria - Copyright &copy; {new Date().getFullYear()}
               </Typography>
             </div>
           </Box>
@@ -147,4 +185,18 @@ function Form(props) {
   );
 }
 
-export default Form;
+const mapStateToProps = state => {
+  return {
+    loading: state.auth.loading,
+    error: state.auth.error,
+    authSuccess: state.auth.success
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onLoginSubmitHandler: (isSignUp, authData) => dispatch(actions.auth(isSignUp, authData))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

@@ -138,6 +138,8 @@ function Navbar(props) {
         width={style.drawer}
         classes={{ paper: style.drawerPaper }}
         handleDrawerClose={handleDrawerClose}
+        userData={props.userData}
+        logOut={props.logOut}
       />
     </div>
   );

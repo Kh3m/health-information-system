@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import {
   makeStyles,
   Drawer,
@@ -16,6 +17,7 @@ import { ChevronLeft, ChevronRight, AccountCircle } from "@material-ui/icons";
 
 import { Buttons } from "./Custom/Sidebuttons";
 import headerLogo from "../assets/images/logow.png";
+import Login from "../auth/Login";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -43,7 +45,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function SideBar(props) {
+  // make signin in sidebar open form modal
+  const [openLoginForm, setOpenLoginForm] = useState(false);
+  const openLoginFormHandler = () => {
+    setOpenLoginForm(true);
+  }
+  const closeLoginFormHandler = () => {
+    setOpenLoginForm(false);
+  }
+
   const { classes, width, open, handleDrawerClose } = props;
   const style = useStyles();
   const theme = useTheme();
@@ -79,22 +91,26 @@ function SideBar(props) {
         {/* user profile */}
         <div>
           <List>
-            <ListItem button>
+            <ListItem button onClick={openLoginFormHandler}>
               <ListItemIcon>
                 <AccountCircle style={{ fontSize: "40px" }} />
               </ListItemIcon>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <Typography variant='h1' style={{ fontSize: "2rem" }}>
-                  Demo Admin
+                  {props.userData ? props.userData.email : "Sign In"}
                 </Typography>
-                <Typography variant='subtitle2'>Administrator</Typography>
+                <Typography variant='subtitle2'>{props.userData ? "propsAdministrator" : "Access Your Profile"}</Typography>
               </div>
             </ListItem>
           </List>
+          {/** 
+           * Redirect on successful sign in or sign up
+           */}
+          {props.userData ? <Redirect to="/dashboard" /> : <Login openModal={openLoginForm} handleModalClose={closeLoginFormHandler}/>}
         </div>
         {/* drawer items */}
         <div className={style.drawerItems}>
-          <Buttons />
+          <Buttons userData={props.userData} logOut={props.logOut}/>
         </div>
       </Drawer>
     </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import {
   makeStyles,
   Button,
@@ -100,12 +102,11 @@ function Home(props) {
                 system for health information records.
               </Typography>
               <div className={style.dashboardbutton}>
-                <Button variant='contained' size='large'>
-                  Register
-                </Button>
-                <Button variant='contained' size='large' onClick={LoginClick}>
-                  Login
-                </Button>
+                  {/**
+                  * replace get started with welcome back message
+                  */}
+                  {props.userData ? "Welcome back " + props.userData.email :
+                  <Button variant='contained' size='large' onClick={LoginClick}>Get Started</Button>}
               </div>
             </Paper>
           </div>
@@ -171,4 +172,9 @@ function Home(props) {
   );
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    userData: state.auth.authData
+  }
+}
+export default connect(mapStateToProps)(Home);
