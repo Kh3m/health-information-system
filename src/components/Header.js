@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { AccountCircle, Menu as MenuIcon } from "@material-ui/icons";
 import SideBar from "./Sidebar";
+import Login from "../auth/Login";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -68,6 +69,14 @@ function Navbar(props) {
     handleDrawerOpen,
   } = props;
 
+  // open login form
+  const [openModal, setOpenModal] = useState(false);
+
+  // close modal
+  const modalCloseHandler = () => {
+    setOpenModal(false);
+  }
+
   // open user account menu
   const [openMenu, setOpenMenu] = useState(null);
 
@@ -77,6 +86,13 @@ function Navbar(props) {
   };
   const handleAccountMenuClose = () => {
     setOpenMenu(null);
+    if(props.userData) {
+      // signout instead
+      props.logOut();
+    } else {
+      setOpenModal(true);      
+    }
+    setOpenModal(true);
   };
 
   const style = useStyles();
@@ -115,9 +131,10 @@ function Navbar(props) {
                     }}>
                     <MenuItem>Profile</MenuItem>
                     <MenuItem onClick={handleAccountMenuClose}>
-                      Log out
+                      {props.userData ? "Sign out" : "Sign In"}
                     </MenuItem>
                   </Menu>
+                  {props.userData ? null : <Login openModal={openModal} handleModalClose={modalCloseHandler} />}
                 </React.Fragment>
               ) : (
                 <Button

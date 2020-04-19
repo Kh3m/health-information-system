@@ -86,12 +86,6 @@ function Form(props) {
   // switch mode state
   const [isSignUp, setIsSignUp] = useState(false);
 
-  // login form state
-  const [loginFormData, setLoginFormData] = useState({
-    email: "",
-    password: ""
-  });
-
   const switchViewHandler = () => {
     setIsSignUp(!isSignUp);
   }
@@ -103,6 +97,12 @@ function Form(props) {
 
     return defaultView;
   }
+
+  // login form state
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: ""
+  });
 
   // two way binding
   const loginFormChangeHandler = (event, prop) => {

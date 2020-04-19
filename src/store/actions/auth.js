@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import keys from "../../config/keys";
 import { post } from "../../utilities/request";
 export const authStart = () => {
     return {
@@ -28,15 +29,14 @@ export const authFail = (err) => {
 export const auth = (isSignUp, loginData) => {
     return dispatch => {      
         dispatch(authStart());
-        let uri = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAeCBU2RlJsmldnMMZh8B4dNkpeaKLrfIo";
+        let uri = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + keys.googleFirebaseApiKey;
         if(isSignUp) {
-            uri = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAeCBU2RlJsmldnMMZh8B4dNkpeaKLrfIo";
+            uri = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + keys.googleFirebaseApiKey;
         }
 
         console.log(uri);
         post(uri, {...loginData, returnSecureToken: true})
         .then(res => {
-            console.log("Response", res);
             if(res.error) {
                 dispatch(authFail(res.error));
             } else {
@@ -44,7 +44,6 @@ export const auth = (isSignUp, loginData) => {
             }
         })
         .catch(err => {
-            console.log("Error", err);
             dispatch(authFail(err));
         });
     }
